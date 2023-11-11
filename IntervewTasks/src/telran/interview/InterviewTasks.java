@@ -85,7 +85,7 @@ public class InterviewTasks {
 		HashMap<String, Long> occurrencesMap = new HashMap<>();
 
 	    for (String str : strings) {
-	        
+	        //default V merge(K key, V value, BiFunction<? super V,? super V,? extends V> remappingFunction)
 	        occurrencesMap.merge(str, 1L, Long::sum);
 	        
 	    }
