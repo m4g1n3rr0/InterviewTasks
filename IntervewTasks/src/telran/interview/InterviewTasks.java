@@ -12,6 +12,7 @@ public class InterviewTasks {
 	public static boolean isSum2(int [] ar, int sum) {
 	//TODO  should be done with O[N]
 		
+		boolean flag = false;
 		
 	    Set<Integer> set = new HashSet<>();
 
@@ -19,7 +20,7 @@ public class InterviewTasks {
 	        
 	        if (set.contains(sum - num)) {
 	            
-	        	return true; 
+	        	flag = true; 
 	        	
 	        }
 
@@ -27,7 +28,7 @@ public class InterviewTasks {
 	        
 	    }
 
-	    return false; 
+	    return flag; 
 	    
 	}
 	
@@ -93,6 +94,34 @@ public class InterviewTasks {
 	    return occurrencesMap;
 	    
 	}
+	
+	public static boolean isAnagram(String string, String anagram) {
+		//TODO
+		
+		 if (anagram.equals(string)) {
+	           
+	        	return false;
+	        
+	        }
+		
+		HashMap<Character, Integer> occurrencesMap = new HashMap<>();
+		HashMap<Character, Integer> occurrencesMap2 = new HashMap<>();
+
+	    for (Character letter : anagram.toCharArray()) {
+	    	
+	    	occurrencesMap.merge(letter, 1, Integer::sum);
+	    	
+	    }
+
+	    for (Character letter : string.toCharArray()) {
+	    	
+	    	occurrencesMap2.merge(letter, 1, Integer::sum);
+	    	
+	    }
+		
+	    return occurrencesMap.equals(occurrencesMap2);
+		
+	} 
 	
 }
 
