@@ -98,12 +98,6 @@ public class InterviewTasks {
 	public static boolean isAnagram(String string, String anagram) {
 		//TODO
 		
-		 if (anagram.equals(string)) {
-	           
-	        	return false;
-	        
-	        }
-		
 		HashMap<Character, Integer> occurrencesMap = new HashMap<>();
 		HashMap<Character, Integer> occurrencesMap2 = new HashMap<>();
 
@@ -118,8 +112,16 @@ public class InterviewTasks {
 	    	occurrencesMap2.merge(letter, 1, Integer::sum);
 	    	
 	    }
+	    
+	    boolean flag = occurrencesMap.equals(occurrencesMap2);
 		
-	    return occurrencesMap.equals(occurrencesMap2);
+		if (anagram.equals(string)) {
+	           
+	        flag = false;
+	        
+	    }
+		
+	    return flag;
 		
 	} 
 	
