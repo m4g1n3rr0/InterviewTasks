@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
+import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
 
@@ -70,27 +73,25 @@ class InterviewTasksTest {
 		
 	}
 	
-/*	@Test
+	@Test
 	    void displayDigitsDistributionTest() {
 	       
-		// Redirect the standard output to capture the printed content
-	        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-	        System.setOut(new PrintStream(outputStream));
+		int nNumbers = 1_000_000;
+		Random gen = new Random();
+			
+		 TreeMap<Integer, Long> occurrencesMap = gen.ints(nNumbers, 1, nNumbers)
+               .mapToObj(Integer::toString)
+               .flatMapToInt(CharSequence::chars)
+		       .mapToObj(Character::getNumericValue)
+		       .collect(Collectors.groupingBy(e -> e, TreeMap::new, Collectors.counting()));
 
-	        // Call the method that prints the digits distribution
-	        InterviewTasks.displayDigitsDistribution();
-
-	        // Restore the standard output
-	        System.setOut(System.out);
-
-	        // Get the printed content as a string
-	        String printedOutput = outputStream.toString().trim();
-
-	        // Assuming the output should contain at least the digit "1"
-	        assertTrue(printedOutput.contains("1"), "Output should contain at least the digit 1");
+		 occurrencesMap.entrySet()
+		        .stream()
+		        .sorted(Map.Entry.<Integer, Long>comparingByValue().reversed())
+		        .forEach(entry -> System.out.println(entry.getKey() + " - " + entry.getValue()));
 	   
 	 
-}*/
+}
 	
 	 
 	 }
