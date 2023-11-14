@@ -3,9 +3,16 @@ package telran.interview.test;
 import static org.junit.jupiter.api.Assertions.*;
 import static telran.interview.InterviewTasks.*;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.junit.jupiter.api.Test;
+
+import telran.interview.InterviewTasks;
 
 class InterviewTasksTest {
 
@@ -62,6 +69,30 @@ class InterviewTasksTest {
 		assertFalse(isAnagram(string, "wolye")); //must be two 'l'   
 		
 	}
+	
+/*	@Test
+	    void displayDigitsDistributionTest() {
+	       
+		// Redirect the standard output to capture the printed content
+	        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+	        System.setOut(new PrintStream(outputStream));
 
-}
+	        // Call the method that prints the digits distribution
+	        InterviewTasks.displayDigitsDistribution();
+
+	        // Restore the standard output
+	        System.setOut(System.out);
+
+	        // Get the printed content as a string
+	        String printedOutput = outputStream.toString().trim();
+
+	        // Assuming the output should contain at least the digit "1"
+	        assertTrue(printedOutput.contains("1"), "Output should contain at least the digit 1");
+	   
+	 
+}*/
+	
+	 
+	 }
+
 

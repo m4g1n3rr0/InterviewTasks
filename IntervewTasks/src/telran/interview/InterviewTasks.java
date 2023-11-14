@@ -1,6 +1,9 @@
 package telran.interview;
 
+import java.lang.reflect.Array;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class InterviewTasks {
 /**
@@ -124,6 +127,25 @@ public class InterviewTasks {
 	    return flag;
 		
 	} 
+	
+	
+	public static void displayDigitsDistribution() {
+			
+		int nNumbers = 1_000_000;
+		Random gen = new Random();
+			
+		 TreeMap<Integer, Long> occurrencesMap = gen.ints(nNumbers, 1, nNumbers)
+               .mapToObj(Integer::toString)
+               .flatMapToInt(CharSequence::chars)
+		       .mapToObj(Character::getNumericValue)
+		       .collect(Collectors.groupingBy(e -> e, TreeMap::new, Collectors.counting()));
+
+		 occurrencesMap.entrySet()
+		        .stream()
+		        .sorted(Map.Entry.<Integer, Long>comparingByValue().reversed())
+		        .forEach(entry -> System.out.println(entry.getKey() + " - " + entry.getValue()));
+		        
+		}
 	
 }
 
