@@ -134,7 +134,7 @@ public class InterviewTasks {
 		int nNumbers = 1_000_000;
 		Random gen = new Random();
 			
-		 TreeMap<Integer, Long> occurrencesMap = gen.ints(nNumbers, 1, nNumbers)
+		 TreeMap<Integer, Long> occurrencesMap = gen.ints(nNumbers, 1, Integer.MAX_VALUE)
                .mapToObj(Integer::toString)
                .flatMapToInt(CharSequence::chars)
 		       .mapToObj(Character::getNumericValue)
