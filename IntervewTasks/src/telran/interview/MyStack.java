@@ -1,9 +1,8 @@
 package telran.interview;
 
-import java.util.Random;
+import java.util.Collections;
+import java.util.NoSuchElementException;
 import java.util.Stack;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 /**
  * All the method implementations should be in the complexity O[1]
@@ -17,13 +16,12 @@ public class MyStack {
 	* @param number
 	*/
 	
-	Random gen = new Random();
-	Stack<Integer> stk = IntStream.range(0, 10).mapToObj(i -> gen.nextInt()).collect(Collectors.toCollection(Stack::new));
-	int number = 15;
+	Stack<Integer> stk = new Stack<>();
 	
 	public void push(int number) {
-	    	//TODO
-	
+
+		stk.push(number);
+		
 	}
 	
 	/**
@@ -34,9 +32,14 @@ public class MyStack {
 	 */
 
 	public int pull() {
-			//TODO
-	
-		return -1;
+		
+		 if (stk.isEmpty()) {
+	          
+			 throw new NoSuchElementException();
+	        
+		 }
+		
+		return stk.pop();
 	
 	}
 	
@@ -46,9 +49,8 @@ public class MyStack {
 	 */
 	
 	public boolean isEmpty() {
-			//TODO
 		
-		return false;
+		return stk.isEmpty();
 		
 	}
 		
@@ -60,9 +62,8 @@ public class MyStack {
 	 */
 
 	public int getMax() {
-			//TODO
-			
-		return -1;
+		
+		return Collections.max(stk);
 		
 	}
 	
