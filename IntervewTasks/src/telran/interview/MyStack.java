@@ -1,5 +1,10 @@
 package telran.interview;
 
+import java.util.Random;
+import java.util.Stack;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 /**
  * All the method implementations should be in the complexity O[1]
  */
@@ -12,8 +17,10 @@ public class MyStack {
 	* @param number
 	*/
 	
+	Random gen = new Random();
+	Stack<Integer> stk = IntStream.range(0, 10).mapToObj(i -> gen.nextInt()).collect(Collectors.toCollection(Stack::new));
+	int number = 15;
 	
-		
 	public void push(int number) {
 	    	//TODO
 	
