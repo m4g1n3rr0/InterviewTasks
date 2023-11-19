@@ -91,9 +91,28 @@ class InterviewTasksTest {
 		        .forEach(entry -> System.out.println(entry.getKey() + " - " + entry.getValue()));
 	   
 	 
-}
+	}
 	
-	 
-	 }
+	@Test
+	void displayArrayShufflingTest() {
+		
+		int [] array = {1,2,3,4,5,6};
+		
+		for (int i = 0; i < 3; i++) {
+			
+			displayArrayShuffling(array);
+			
+		}
+		
+		//output, like
+		/*
+		 * 4, 1, 5, 3, 6, 2
+		 * 5, 2, 4, 6, 3, 1
+		 * 3, 5, 4, 1, 2, 6
+		 */
+		
+	}
+	
+}
 
 
