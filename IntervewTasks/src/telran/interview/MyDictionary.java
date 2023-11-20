@@ -21,6 +21,7 @@ private TreeSet<String> set;
 	public boolean addWord(String word) {
 		
 		return set.add(word);
+	
 	}
 	
 	/**
