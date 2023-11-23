@@ -1,6 +1,9 @@
 package telran.interview;
 
+import static telran.interview.InterviewTasks.getListOfDateTitle;
+
 import java.lang.reflect.Array;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -151,6 +154,37 @@ public class InterviewTasks {
 		
 		new Random().ints(0, array.length).distinct().limit(array.length).forEach(i -> System.out.print(array[i] + " "));
 		
+	}
+	
+	public static List<DateTitle> getListOfDateTitle(List<DateTitle> history,List<LocalDate> dates) {
+	
+		List<DateTitle> result = new ArrayList<>();
+			
+		for (LocalDate date : dates) {
+		           
+			DateTitle dateTitle = findDateTitle(history, date);
+			result.add(dateTitle);
+		        
+		}
+		        
+		return result;
+		    
+	}
+
+	private static DateTitle findDateTitle(List<DateTitle> history, LocalDate date) {
+		        
+		for (DateTitle dt : history) {
+		            
+			if (dt.date.isEqual(date)) {
+		               
+				return new DateTitle(date, dt.title);
+		            
+			}
+		        
+		}
+		        
+		return new DateTitle(date, null);
+		    
 	}
 	
 }

@@ -5,6 +5,7 @@ import static telran.interview.InterviewTasks.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
 
+import telran.interview.DateTitle;
 import telran.interview.InterviewTasks;
 
 class InterviewTasksTest {
@@ -111,6 +113,22 @@ class InterviewTasksTest {
 		 * 3, 5, 4, 1, 2, 6
 		 */
 		
+	}
+	
+	@Test
+	void DateTitlesTest() {
+		
+		List<DateTitle> DateTitles = getListOfDateTitle(List.of(new DateTitle(LocalDate.parse("2017-10-12"), "Developer"),
+				new DateTitle(LocalDate.parse("2020-01-01"), "Team leader"),new DateTitle(LocalDate.parse("2023-08-15"), "Project Manager")),
+				List.of(LocalDate.parse("2015-01-01"),LocalDate.parse("2018-01-01"),LocalDate.parse("2023-01-01")));
+		
+		DateTitle[] expected = {
+			new DateTitle(LocalDate.parse("2015-01-01"), null),
+			new DateTitle(LocalDate.parse("2018-01-01"), "Developer"),
+			new DateTitle(LocalDate.parse("2023-01-01"), "Team leader")
+		};
+		
+		assertArrayEquals(expected, DateTitles.toArray(DateTitle[]::new));
 	}
 	
 }
